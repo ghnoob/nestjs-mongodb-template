@@ -9,7 +9,7 @@ export async function createUmzugInstance() {
   const umzug = new Umzug({
     logger: console,
     migrations: {
-      glob: ['./seeders/*.ts', { cwd: __dirname }],
+      glob: ['./seeders/*[!.d].{t,j}s', { cwd: __dirname }],
     },
     context: connection.db,
     storage: new MongoDBStorage({ connection }),
